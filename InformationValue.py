@@ -44,8 +44,8 @@ def woe_single_x(x, y, event=1):
         :return: dictionary contains woe values for categories of this feature
                  information value of this feature
         '''
-        _WOE_MIN = -20
-        _WOE_MAX = 20
+        _WOE_MIN = -1
+        _WOE_MAX = 1
         event_total, non_event_total = count_binary(y, event=event)
         x_labels = np.unique(x)
         woe_dict = {}
@@ -87,12 +87,12 @@ def woe( X, y, event=1,discrete_num=4):
             res_iv.append(iv1)
         return np.array(res_woe), np.array(res_iv)
 
-df_data=pd.DataFrame({"c1":[1,1,3,2,4,1,2,2, 2,2,3,4,3,1,2,1],
-                      "c2":[1,2,3,4,3,1,3,1, 3,2,1,3,4,1,2,3],
-                      "c5":[1,3,4,2,3,3,3,2, 4,2,2,3,3,2,2,1],
-                      "c4":[1,2,2,4,1,3,3,4, 3,2,1,3,2,4,2,3],
-                      "c3":[1,2,6,4,2,6,6,2, 6,1,2,3,6,6,1,2],
-                      "label":[0,0,1,0,0,1,1,0, 1,0,0,0,1,1,0,0]})
+# df_data=pd.DataFrame({"c1":[1,1,3,2,4,1,2,2, 2,2,3,4,3,1,2,1],
+#                       "c2":[1,2,3,4,3,1,3,1, 3,2,1,3,4,1,2,3],
+#                       "c5":[1,3,4,2,3,3,3,2, 4,2,2,3,3,2,2,1],
+#                       "c4":[1,2,2,4,1,3,3,4, 3,2,1,3,2,4,2,3],
+#                       "c3":[1,2,6,4,2,6,6,2, 6,1,2,3,6,6,1,2],
+#                       "label":[0,0,1,0,0,1,1,0, 1,0,0,0,1,1,0,0]})
 df_data=pd.DataFrame({"c1":[1,0,1,0,0,1,0,1, 1,0,0,0,0,1,1,1],
                       "c2":[1,0,0,0,1,0,0,0, 0,0,1,1,1,1,0,0],
                       "c5":[0,1,1,1,0,1,1,1, 1,1,1,0,1,0,1,1],
