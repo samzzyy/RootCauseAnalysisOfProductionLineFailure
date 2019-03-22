@@ -25,7 +25,7 @@
 
 我们使用多个相关性指标先进行不良机台定位，Infomation value，卡方统计量，做出置信度由高到低的Rank后，使用公式$\sqrt[n]{\prod_{i=1}^{n}Rank_i}$确定不良机台的置信度。
 
-卡方统计量函数处于utility.py中
+卡方统计量函数处于**utility.py**中
 
 information value 是利用的别人的库，但对连续数据进行分箱的操作会使得结果对这个处理过分依赖，所以应该尽量多次尝试分箱的数量，选择最优。离散的数据处理方式可以更简单，因此后续会更新更简单的方式。
 
@@ -43,13 +43,13 @@ CART使用gini指数作为分裂指标，对不平衡数据可能并不能很好
 
 因此实现了以**IV作为分裂指标的决策树。**
 
-DT_IV3.py是多叉IV树，即根据站点下的机台数量，三台机台有三条分支
+**DT_IV3.py**是多叉IV树，即根据站点下的机台数量，三台机台有三条分支
 
-DT_IV2.py是二叉IV树，即和CART的基尼指数分裂方式一致，若为该特征走左，否则右。
+**DT_IV2.py**是二叉IV树，即和CART的基尼指数分裂方式一致，若为该特征走左，否则右。
 
-DecisionTreebyIV.ipynb是DT_IV2测试文件，
+**DecisionTreebyIV.ipynb**是DT_IV2测试文件，
 
-DT_IV3.ipynb是DT_IV3测试文件，
+**DT_IV3.ipynb**是DT_IV3测试文件，
 
 #### result of IV
 
