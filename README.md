@@ -1,8 +1,8 @@
 # CorrelationAnalysis
 
-##Background
+## Background
 这是一个为生产线出现不良产品时而进行的根因分析，即发现导致高不良率的机台或机台组合，再细化到发现机台上的不良根因参数。
-##Data type
+## Data type
 
 设备进出表，每个站点代表某种工序，每个工序可能存在并行的机台a,b..n都能完成该工序。这是典型的名义数据，数据形式如下。
 
@@ -21,7 +21,7 @@
 
 ## Framework
 
-####Single machine location
+#### Single machine location
 
 我们使用多个相关性指标先进行不良机台定位，Infomation value，卡方统计量，做出置信度由高到低的Rank后，使用公式$\sqrt[n]{\prod_{i=1}^{n}Rank_i}$确定不良机台的置信度。
 
@@ -37,7 +37,7 @@ information value 是利用的别人的库，但对连续数据进行分箱的�
 
 使用CART决策树进行路径分析，用监督的方式学习站点设备进出表，最后生成的树的总是到label=1叶子节点路径是被怀疑的路径，进行重复的路径高频统计，1叶子节点总是经过的高频路径，是最可能的不良机台组合路径。
 
-###Decision tree by information value
+### Decision tree by information value
 
 CART使用gini指数作为分裂指标，对不平衡数据可能并不能很好的处理。
 
