@@ -1,5 +1,4 @@
-# CorrelationAnalysis
-
+# RootCauseAnalysisOfProductionLineFailure
 ## Background
 这是一个为生产线出现不良产品时而进行的根因分析，即发现导致高不良率的机台或机台组合，再细化到发现机台上的不良根因参数。
 ## Data type
@@ -57,7 +56,7 @@ CART使用gini指数作为分裂指标，对不平衡数据可能并不能很好
 
 使用公开数据集heart disease：iv树比cart准确度高平均5个点，但召回率一致。
 
-不是数学大佬，只能以后做更多实验，逐步补充情况。
+不是数学大佬，只能以后做更多实验，逐步完善更新。
 
 
 
