@@ -13,10 +13,10 @@
 
 | product_id | station01  | station02  | station03  | station04  | label |
 | ---------- | ---------- | ---------- | ---------- | ---------- | ----- |
-| a0b1a22a   | machine_1a | machine_2c | machine_3b | machine_4c | 0     |
-| a0b1a22b   | machine_1b | machine_2c | machine_3b | machine_4c | 1     |
-| c0b1b21a   | machine_1b | machine_2c | machine_3b | machine_4c | 0     |
-| c0b1b19b   | machine_1c | machine_2c | machine_3b | machine_4c | 0     |
+| a0b1a22a   | machine_1a | machine_2c | machine_3a | machine_4d | 0     |
+| a0b1a22b   | machine_1b | machine_2b | machine_3b | machine_4c | 1     |
+| c0b1b21a   | machine_1b | machine_2c | machine_3b | machine_4d | 0     |
+| c0b1b19b   | machine_1c | machine_2a | machine_3b | machine_4c | 0     |
 
 ## Framework
 
