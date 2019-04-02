@@ -20,7 +20,7 @@
 
 ## Framework
 
-#### Single machine location
+### Single machine location
 
 我们使用多个相关性指标先进行不良机台定位，Infomation value，卡方统计量，做出置信度由高到低的Rank后，使用公式 $ \sqrt[n]{\prod_{i=1}^{n}Rank_i} $ 确定不良机台的置信度。
 
@@ -31,13 +31,13 @@ information value 是利用的别人的库，但对连续数据进行分箱的�
 2019-4-2日更新，使用RootCauseAna.py文件中的final_rank_confidence(df_cluster,corr_func_list)函数进行全流程的自动根因分析，df_cluster是pandas的dataframe(上一节所说的设备进出表)，corr_func_list是一个包含不同相关性分析方法的列表(其函数方法实现都位于corrAnaModule.py模块)。例如['gini_index','iv_index','chi_square_index']是使用基尼指数，information value，卡方统计量三种方式作出的综合rank。
 根据客户反映，若在相关性分析综合rank中加入设备先后时间的rank，能有效提高准确度。例如在相似的置信度下的A、B被怀疑机台，若产品先进入A，则A机台导致不良的可能性更大。
 
-#### Path analysis
+### Path analysis
 
 因为导致不良产品的不一定完全是单个机台导致的，即有可能是机台的组合使得不良发生。因此单机台的分析不太合理。加上路径的分析作为补充。
 
 使用CART决策树进行路径分析，用监督的方式学习站点设备进出表，最后生成的树的总是到label=1叶子节点路径是被怀疑的路径，进行重复的路径高频统计，1叶子节点总是经过的高频路径，是最可能的不良机台组合路径。
 
-### Decision tree by information value
+#### Decision tree by information value
 
 CART使用gini指数作为分裂指标，对不平衡数据可能并不能很好的处理。
 
