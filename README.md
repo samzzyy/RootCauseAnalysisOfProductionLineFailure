@@ -24,8 +24,8 @@
 
 我们使用多个相关性指标先进行不良机台定位，Infomation value，卡方统计量，做出置信度由高到低的Rank后，使用公式 $ \sqrt[n]{\prod_{i=1}^{n}Rank_i} $ 确定不良机台的置信度。
 
-皮尔森卡方统计检验函数处于**utility.py**中
-information value 是利用的别人的库，但对连续数据进行分箱的操作会使得结果对这个处理过分依赖，所以应该尽量多次尝试分箱的数量，选择最优。离散的数据处理方式可以更简单，因此后续会更新更简单的方式。
+皮尔森卡方统计检验函数处于**utility.py**中。
+information value 是利用的别人的库，但对连续数据进行分箱的操作会使得结果对这个分箱处理过分依赖，所以应该尽量多次尝试分箱的数量，选择最优。离散的数据处理方式可以更简单，因此后续会更新更简单的方式。
 **example文件夹**中是使用该方法进行分析测试的notebook文件，但是是使用的station_machine为列名的01进出表测试的，即产品通过该站点该机台，则该特征的值为1，否则0。最后能在top2置信度发现不良机台。
 
 2019-4-2日更新，使用RootCauseAna.py文件中的final_rank_confidence(df_cluster,corr_func_list)函数进行全流程的自动根因分析，df_cluster是pandas的dataframe(上一节所说的设备进出表)，corr_func_list是一个包含不同相关性分析方法的列表(其函数方法实现都位于corrAnaModule.py模块)。例如['gini_index','iv_index','chi_square_index']是使用基尼指数，information value，卡方统计量三种方式作出的综合rank。
