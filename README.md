@@ -28,8 +28,8 @@
 information value 是利用的别人的库，但对连续数据进行分箱的操作会使得结果对这个处理过分依赖，所以应该尽量多次尝试分箱的数量，选择最优。离散的数据处理方式可以更简单，因此后续会更新更简单的方式。
 **example文件夹**中是使用该方法进行分析测试的notebook文件，但是是使用的station_machine为列名的01进出表测试的，即产品通过该站点该机台，则该特征的值为1，否则0。最后能在top2置信度发现不良机台。
 
-2019-4-2日更新，使用**RootCauseAna.py**文件中的final_rank_confidence(df_cluster,corr_func_list)函数进行全流程的自动根因分析，df_cluster是pandas的上一节所说的设备进出表，corr_func_list是一个包含不同相关性分析方法的列表，如['gini_index','iv_index','chi_square_index']是使用基尼指数，information value，卡方统计量三种方式作出的综合rank。
-最近根据用户反映，若在相关性分析综合rank中加入设备先后时间的rank，能有效提高准确度。例如在相似的置信度下的A、B被怀疑机台，若产品先进入A，则A机台导致不良的可能性更大。
+2019-4-2日更新，使用RootCauseAna.py文件中的final_rank_confidence(df_cluster,corr_func_list)函数进行全流程的自动根因分析，df_cluster是pandas的dataframe(上一节所说的设备进出表)，corr_func_list是一个包含不同相关性分析方法的列表(其函数方法实现都位于corrAnaModule.py模块)。例如['gini_index','iv_index','chi_square_index']是使用基尼指数，information value，卡方统计量三种方式作出的综合rank。
+根据客户反映，若在相关性分析综合rank中加入设备先后时间的rank，能有效提高准确度。例如在相似的置信度下的A、B被怀疑机台，若产品先进入A，则A机台导致不良的可能性更大。
 
 #### Path analysis
 
@@ -53,11 +53,12 @@ CART使用gini指数作为分裂指标，对不平衡数据可能并不能很好
 
 #### result of IV
 
-使用实际生产数据：iv树比cart准确度少平均3个点
+使用实际生产数据：iv树比cart准确率少平均3个点
 
-使用公开数据集heart disease：iv树比cart准确度高平均5个点，但召回率一致。
+使用公开数据集[heart disease](<https://www.kaggle.com/ronitf/heart-disease-uci>)：
 
-不是数学大佬，只能以后做更多实验，逐步完善更新。
+iv树比cart准确度高平均5个点，但召回率一致。
+
 
 
 
