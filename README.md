@@ -22,13 +22,14 @@
 
 #### Single machine location
 
-我们使用多个相关性指标先进行不良机台定位，Infomation value，卡方统计量，做出置信度由高到低的Rank后，使用公式 $\sqrt[n]{\prod_{i=1}^{n}Rank_i}$ 确定不良机台的置信度。
+我们使用多个相关性指标先进行不良机台定位，Infomation value，卡方统计量，做出置信度由高到低的Rank后，使用公式 $ \sqrt[n]{\prod_{i=1}^{n}Rank_i} $ 确定不良机台的置信度。
 
 卡方统计量函数处于**utility.py**中
-
 information value 是利用的别人的库，但对连续数据进行分箱的操作会使得结果对这个处理过分依赖，所以应该尽量多次尝试分箱的数量，选择最优。离散的数据处理方式可以更简单，因此后续会更新更简单的方式。
-
 **example文件夹**中是使用该方法进行分析测试的notebook文件，但是是使用的station_machine为列名的01进出表测试的，即产品通过该站点该机台，则该特征的值为1，否则0。最后能在top2置信度发现不良机台。
+
+2019-4-2日更新，使用**RootCauseAna.py**文件中的final_rank_confidence(df_cluster,corr_func_list)函数进行全流程的自动根因分析，df_cluster是pandas的上一节所说的设备进出表，corr_func_list是一个包含不同相关性分析方法的列表，如['gini_index','iv_index','chi_square_index']是使用基尼指数，information value，卡方统计量三种方式作出的综合rank。
+最近根据用户反映，若在相关性分析综合rank中加入设备先后时间的rank，能有效提高准确度。例如在相似的置信度下的A、B被怀疑机台，若产品先进入A，则A机台导致不良的可能性更大。
 
 #### Path analysis
 
