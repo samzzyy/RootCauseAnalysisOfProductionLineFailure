@@ -22,7 +22,7 @@
 
 #### Single machine location
 
-我们使用多个相关性指标先进行不良机台定位，Infomation value，卡方统计量，做出置信度由高到低的Rank后，使用公式$\sqrt[n]{\prod_{i=1}^{n}Rank_i}$确定不良机台的置信度。
+我们使用多个相关性指标先进行不良机台定位，Infomation value，卡方统计量，做出置信度由高到低的Rank后，使用公式 $\sqrt[n]{\prod_{i=1}^{n}Rank_i}$ 确定不良机台的置信度。
 
 卡方统计量函数处于**utility.py**中
 
